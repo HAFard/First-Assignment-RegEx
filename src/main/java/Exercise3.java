@@ -29,8 +29,12 @@ public class Exercise3 {
      */
 
     public static boolean validateEmail(String email) {
-        // TODO
-        return false;
+        String regex = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,3}$";  // TODO
+
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(email);
+
+        return matcher.find();
     }
 
     /*
