@@ -43,6 +43,15 @@ public class Exercise3 {
 
     public static List<String> findWordsWithRepeatLetters(String input) {
         List<String> wordsWithRepeatLetters = new ArrayList<>();
+        String regex = "\\b([A-Za-z])+([a-z])+((\\1)+|(\\2)+)([a-z])*\\b";
+
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(input);
+
+        while (matcher.find()) {
+            wordsWithRepeatLetters.add( matcher.group());
+        }
+
         return wordsWithRepeatLetters;
         // TODO
     }
